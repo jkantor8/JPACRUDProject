@@ -3,6 +3,8 @@ package com.skilldistillery.footballbowlsubdivision.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -10,18 +12,16 @@ import org.springframework.stereotype.Service;
 
 import com.skilldistillery.footballbowlsubdivision.entities.Team;
 
-
 @Service
 @Transactional
 public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDAO {
-	
-	
+
 	@PersistenceContext
 	private EntityManager em;
-	
+
 	@Override
 	public Team findById(int id) {
-				return em.find(Team.class, id);
+		return em.find(Team.class, id);
 	}
 
 	@Override
@@ -32,24 +32,43 @@ public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDA
 
 	@Override
 	public Team create(Team team) {
-		// TODO Auto-generated method stub
-		return null;
+
+		em.persist(team);
+
+		return team;
 	}
 
-	
-	//REMINDER
-	//NO begin/commit
-	//NO em.close();
+	// REMINDER
+	// NO begin/commit
+	// NO em.close();
 	@Override
 	public Team update(int id, Team team) {
-		// TODO Auto-generated method stub
-		return null;
+
+		Team managed = em.find(Team.class, id);
+		managed.setSchool(team.getSchool());
+		managed.setTeamName(team.getTeamName());
+		managed.setMascot(team.getMascot());
+		managed.setConference(team.getConference());
+		managed.setLogo(team.getLogo());
+		managed.setNationalChampionships(team.getNationalChampionships());
+
+		return managed;
 	}
 
 	@Override
 	public boolean deleteById(int id) {
-		// TODO Auto-generated method stub
-		return false;
+		boolean success = false;
+
+		Team toDelete = em.find(Team.class, id);
+		if (em.contains(toDelete)) {
+	
+			em.remove(toDelete);
+			
+
+		} else {
+			success = false;
+		}
+		return success;
 	}
 
 }
