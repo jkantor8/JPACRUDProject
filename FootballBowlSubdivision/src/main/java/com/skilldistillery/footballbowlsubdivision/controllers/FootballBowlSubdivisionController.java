@@ -21,6 +21,11 @@ public class FootballBowlSubdivisionController {
 		model.addAttribute("teams", fbsDao.findAll());
 		return "home";
 	}
+	@RequestMapping (path = {"teamList.do"})
+	public String listAllTeams(Model model) {
+		model.addAttribute("teams", fbsDao.findAll());
+		return "teamList";
+	}
 	
 	@RequestMapping(path="getTeamById.do")
 	public String showFilm(Integer id, Model model) {

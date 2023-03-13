@@ -10,24 +10,11 @@
 <title>FBS - Power 5 Team Lookup</title>
 </head>
 <body>
-	<h1>Power 5 Teams</h1>
-
-	<c:choose>
-		<c:when test="${empty teams }">No Teams found</c:when>
-		<c:otherwise>
-			<c:forEach var="team" items="${teams }">
-				<!-- Display in a nice table -->
-
-				<li>${team.id } ${team.school }</li>
-			</c:forEach>
-
-		</c:otherwise>
-
-
-	</c:choose>
+	
 	
 <h2> Menu</h2>
-<a href = "addTeamForm.do"> Add a team</a>
+<a href = "teamList.do"> Show all teams</a><br><br>
+<a href = "addTeamForm.do"> Add a team</a><br><br>
 
 <form action="getTeamById.do" method="GET">
 			Find Team by Id <input type="text" name="id" /> 
@@ -46,10 +33,7 @@
 			<input type="submit" value="Update Team" />
 		</form><br>
 
-<form action="deleteTeam.do" method="GET">
-			Delete Team by Id <input type="text" name="id" /> 
-			<input type="submit" value="Delete Team" />
-		</form><br>
+
 
 </body>
 </html>

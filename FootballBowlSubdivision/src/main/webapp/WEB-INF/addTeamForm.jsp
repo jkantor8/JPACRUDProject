@@ -14,22 +14,22 @@
 <h1>Add a New FBS Team</h1>
 <form action="addTeam.do" method = "POST">
 	<label for= "school">School</label>
-	<input type= "text" id= "school" name= "school"><br>
+	<input type= "text" id= "school" name= "school"><br><br>
 	
 	<label for= "teamName">Team Name</label>
-	<input type= "text" id= "teamName" name= "teamName"><br>
+	<input type= "text" id= "teamName" name= "teamName"><br><br>
 	
 	<label for= "mascot">Mascot</label>
-	<input type= "text" id= "mascot" name= "mascot"><br>
+	<input type= "text" id= "mascot" name= "mascot"><br><br>
 	
 	<label for= "conference">Conference</label>
-	<input type= "text" id= "conference" name= "conference"><br>
+	<input type= "text" id= "conference" name= "conference"><br><br>
 	
 	<label for= "logo">Logo</label>
-	<input type= "text" id= "logo" name= "logo"><br>
+	<input type= "text" id= "logo" name= "logo"><br><br>
 	
 	<label for= "nationalChampionships">National Championships</label>
-	<input type= "text" id= "nationalChampionships" name= "nationalChampionships"><br>
+	<input type= "text" id= "nationalChampionships" name= "nationalChampionships"><br><br>
 	
 	<input type= "submit" value ="Add Team">
 	

@@ -15,20 +15,26 @@
 			<h3>Update ${team.school }</h3>
 
 			<form action="updateTeam.do" method="POST">
-				<label for="school">School</label> <input type="text" id="school"
-					name="school"><br> <label for="teamName">Team
-					Name</label> <input type="text" id="teamName" name="teamName"><br>
-
-				<label for="mascot">Mascot</label> <input type="text" id="mascot"
-					name="mascot"><br> <label for="conference">Conference</label>
-				<input type="text" id="conference" name="conference"><br>
-
-				<label for="logo">Logo</label> <input type="text" id="logo"
-					name="logo"><br> <label for="nationalChampionships">National
-					Championships</label>
-					 <input type="text" id="nationalChampionships"
-					name="nationalChampionships"><br> <input type="submit"
-					value="Update Team">
+				<label for= "school">School</label>
+	<input type= "hidden" name="id" value="${team.id }">			
+				
+	<input type= "text" id= "school" name= "school"><br>
+	
+	<label for= "teamName">Team Name</label>
+	<input type= "text" id= "teamName" name= "teamName"><br>
+	
+	<label for= "mascot">Mascot</label>
+	<input type= "text" id= "mascot" name= "mascot"><br>
+	
+	<label for= "conference">Conference</label>
+	<input type= "text" id= "conference" name= "conference"><br>
+	
+	<label for= "logo">Logo</label>
+	<input type= "text" id= "logo" name= "logo"><br>
+	
+	<label for= "nationalChampionships">National Championships</label>
+	<input type= "text" id= "nationalChampionships" name= "nationalChampionships"><br>
+	 <input type="submit" value="Update Team">
 			</form>
 			</c:when>
 			<c:otherwise>

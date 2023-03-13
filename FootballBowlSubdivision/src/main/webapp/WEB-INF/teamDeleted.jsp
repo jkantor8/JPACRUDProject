@@ -10,9 +10,12 @@
 </head>
 <body>
 <c:choose>
-<c:when test = "${! deleted }">
+<c:when test = "${ deleted }">
 Team Deleted!
 </c:when>
+<c:when test="${!idExists}">
+    <p>The team with the specified ID does not exist</p>
+  </c:when>
  <c:otherwise>
       <p>Unable to delete team</p>
     </c:otherwise>
