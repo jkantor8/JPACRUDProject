@@ -24,9 +24,7 @@
 	
 	<label for= "conference">Conference</label>
 	<input type= "text" id= "conference" name= "conference"><br><br>
-	
-	<label for= "logo">Logo</label>
-	<input type= "text" id= "logo" name= "logo"><br><br>
+
 	
 	<label for= "nationalChampionships">National Championships</label>
 	<input type= "text" id= "nationalChampionships" name= "nationalChampionships"><br><br>

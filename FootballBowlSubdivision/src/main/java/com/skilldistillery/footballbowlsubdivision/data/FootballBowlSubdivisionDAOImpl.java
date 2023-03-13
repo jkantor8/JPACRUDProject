@@ -49,7 +49,7 @@ public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDA
 		managed.setTeamName(team.getTeamName());
 		managed.setMascot(team.getMascot());
 		managed.setConference(team.getConference());
-		managed.setLogo(team.getLogo());
+	
 		managed.setNationalChampionships(team.getNationalChampionships());
 		
 		em.persist(managed);
@@ -61,7 +61,7 @@ public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDA
 
 	@Override
 	public boolean deleteById(int id) {
-		boolean success = false;
+		boolean success = true;
 
 		Team toDelete = em.find(Team.class, id);
 		if (em.contains(toDelete)) {
@@ -74,5 +74,6 @@ public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDA
 		}
 		return success;
 	}
+	
 
 }

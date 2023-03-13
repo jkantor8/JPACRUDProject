@@ -17,8 +17,8 @@ public class Team {
 	private String teamName;
 	private String mascot;
 	private String conference;
-	@Column(name = "logo_url")
-	private String logo;
+//	@Column(name = "logo_url")
+//	private String logo;
 	@Column(name = "national_championships")
 	private Integer nationalChampionships;
 
@@ -66,13 +66,13 @@ public class Team {
 		this.conference = conference;
 	}
 
-	public String getLogo() {
-		return logo;
-	}
-
-	public void setLogo(String logo) {
-		this.logo = logo;
-	}
+//	public String getLogo() {
+//		return logo;
+//	}
+//
+//	public void setLogo(String logo) {
+//		this.logo = logo;
+//	}
 
 	public Integer getNationalChampionships() {
 		return nationalChampionships;
@@ -85,7 +85,7 @@ public class Team {
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", school=" + school + ", teamName=" + teamName + ", mascot=" + mascot
-				+ ", conference=" + conference + ", logo=" + logo + ", nationalChampionships=" + nationalChampionships
+				+ ", conference=" + conference + ", nationalChampionships=" + nationalChampionships
 				+ "]";
 	}
 
