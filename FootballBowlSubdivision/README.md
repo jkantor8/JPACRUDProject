@@ -13,4 +13,4 @@ This program is a basic web-based app that allows a user to access and modify an
 * HTML
 
 ## Lessons Learned
-Throughout the creation of this program, the biggest challenge was mentally mapping out the flow of each CRUD operation, and which JSP pages are needed for each. The next hurdle I was able to get past was ensuring that each variable was mapped correctly to avoid errors.
+Throughout the creation of this program, the biggest challenge was mentally mapping out the flow of each CRUD operation, and which JSP pages are needed for each. The next hurdle I was able to get past was ensuring that each variable was mapped correctly to avoid errors. Once I was able to get the add method to map correctly, the other operations seemed to fall into place much more smoothly. I learned that simplicity within methods allows for increased understandability for quick reference while looking across many files.
