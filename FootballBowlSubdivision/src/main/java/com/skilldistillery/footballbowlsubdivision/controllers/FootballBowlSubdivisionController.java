@@ -15,47 +15,60 @@ public class FootballBowlSubdivisionController {
 	
 	@Autowired
 	private FootballBowlSubdivisionDAO fbsDao;
-	
+	//Home mapping
 	@RequestMapping (path = {"/", "home.do"})
 	public String goHome(Model model) {
 		model.addAttribute("teams", fbsDao.findAll());
 		return "home";
 	}
 	
-	@RequestMapping(path="getTeam.do")
+	@RequestMapping(path="getTeamById.do")
 	public String showFilm(Integer id, Model model) {
 		Team team = fbsDao.findById(id);
 		model.addAttribute("team", team);
 		return "show";
 		// return "index"; // if using a ViewResolver.
+		
+	}
+
+	
+	@RequestMapping(path= "addTeamForm.do")
+	public String create() {
+		return "addTeamForm";
+	
+	
 	}
 	
-	@RequestMapping(path="addTeam.do")
+	@RequestMapping(path="addTeam.do", method = RequestMethod.POST)
 	public String createTeam(Model model, Team team) {
 		Team newTeam = fbsDao.create(team);
-		if (newTeam != null) {
 			model.addAttribute("team", newTeam);
-			return "show";
-		} else {
-			return null;
-		}
+			return "addTeamResult";
+			
 	}
-		@RequestMapping(path="deleteTeam.do", method = RequestMethod.POST)
-		public String deleteTeam(Model model, Team team) {
-			Team teamToDelete = fbsDao.findById(team.getId());
-			boolean deleted = fbsDao.deleteById(team.getId());
-			if (deleted) {
-				model.addAttribute("message", teamToDelete.getSchool() + " deleted!");
-			} else {
-				model.addAttribute("message", "Unable to delete " + teamToDelete.getSchool());
-			}
-			return "delete";
+			
+		@RequestMapping(path="deleteTeam.do")
+		public String deleteTeam(int id, Model model) {
+			boolean deleted =  fbsDao.deleteById(id);
+			model.addAttribute("team", deleted);
+			
+		
+			return "teamDeleted";
 		}
 
+		@RequestMapping(path="updateTeamForm.do")
+		public String update(Model model, int id) {
+			Team team = fbsDao.findById(id);
+			model.addAttribute("team", team);
+			return "updateTeam";
+		}
 		
-		@RequestMapping(path="updateTeam.do")
-		public String updateTeam(Model model) {
-			return "show";
+		
+		@RequestMapping(path="updateTeam.do", method = RequestMethod.POST)
+		public String updateTeam(int id, Team team, Model model) {
+			Team updatedTeam = fbsDao.update(team.getId(), team);
+			model.addAttribute("team", updatedTeam);
+			return "teamUpdated";
 		}
 
 	}

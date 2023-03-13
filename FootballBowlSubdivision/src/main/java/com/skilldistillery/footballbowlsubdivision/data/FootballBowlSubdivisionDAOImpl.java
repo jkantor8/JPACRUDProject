@@ -3,8 +3,6 @@ package com.skilldistillery.footballbowlsubdivision.data;
 import java.util.List;
 
 import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
@@ -45,13 +43,19 @@ public class FootballBowlSubdivisionDAOImpl implements FootballBowlSubdivisionDA
 	public Team update(int id, Team team) {
 
 		Team managed = em.find(Team.class, id);
+		
+		if (managed != null) {
 		managed.setSchool(team.getSchool());
 		managed.setTeamName(team.getTeamName());
 		managed.setMascot(team.getMascot());
 		managed.setConference(team.getConference());
 		managed.setLogo(team.getLogo());
 		managed.setNationalChampionships(team.getNationalChampionships());
-
+		
+		em.persist(managed);
+		em.flush();
+		}
+		
 		return managed;
 	}
 
